@@ -1,2 +1,2 @@
-# Spring-Mybaits
-Spring结合Mybaits练手项目
+# Spring-Mybatis
+Spring结合Mybatis练手项目
