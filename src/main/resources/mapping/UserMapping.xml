@@ -9,8 +9,13 @@
         <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
     </resultMap>
 
+
     <select id="Sel" resultMap="userMap">
         select * from z_user where id = #{id}
     </select>
+    
+    <insert id="addUser" parameterType="com.example.springmybatis.entity.User">
+      insert into z_user (id, username, password, role_Code) values (#{id}, #{username}, #{password},#{roleCode})
+    </insert>
 
 </mapper>

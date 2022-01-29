@@ -10,5 +10,5 @@ public interface UserMapper {
 
     User Sel(int id);
 
-    List<User> findByRoleCode(String roleCode);
+    int addUser(User user);
 }
