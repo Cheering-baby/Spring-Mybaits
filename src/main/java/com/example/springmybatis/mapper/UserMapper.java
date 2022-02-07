@@ -16,4 +16,6 @@ public interface UserMapper {
     int updateUser(User user);
 
     int deleteUser(Integer id);
+
+    List<User> getUserLikeByName(String name);
 }

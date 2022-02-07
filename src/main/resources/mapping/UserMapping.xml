@@ -28,4 +28,8 @@
     <delete id="deleteUser">
         delete from z_user where id=#{id}
     </delete>
+    
+    <select id="getUserLikeByName" parameterType="string" resultMap="userMap">
+        select * from z_user where username like  "%"#{value}"%"
+    </select>
 </mapper>
