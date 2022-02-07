@@ -7,15 +7,25 @@
         <result column="username" jdbcType="VARCHAR" property="username" />
         <result column="password" jdbcType="VARCHAR" property="password" />
         <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
+        <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     </resultMap>
 
-
     <select id="Sel" resultMap="userMap">
-        select * from z_user where id = #{id}
+        select A.id as id, A.username as username, A.password as password, B.role_code as roleCode, B.role_name as roleName
+        from z_user A
+        left join z_role B on A.role_code = B.role_code
+        where A.id = #{id}
     </select>
     
     <insert id="addUser" parameterType="com.example.springmybatis.entity.User">
       insert into z_user (id, username, password, role_Code) values (#{id}, #{username}, #{password},#{roleCode})
     </insert>
 
+    <update id="updateUser" parameterType="com.example.springmybatis.entity.User">
+        update z_user set username=#{username}, password=#{password}, role_code=#{roleCode} where id=#{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete from z_user where id=#{id}
+    </delete>
 </mapper>

@@ -30,4 +30,21 @@ public class UserMapperTest {
         int result = userMapper.addUser(newUser);
         assertEquals(result, 1);
     }
+
+    @Test
+    public void UpdateUser() {
+        User newUser = new User();
+        newUser.setUsername("test_1");
+        newUser.setPassword("test_1");
+        newUser.setRoleCode("ADMIN_1");
+        newUser.setId(35);
+        int result = userMapper.updateUser(newUser);
+        assertEquals(result, 1);
+    }
+
+    @Test
+    public void DeleteUser() {
+        int result = userMapper.deleteUser(33);
+        assertEquals(result, 1);
+    }
 }
