@@ -1,6 +1,7 @@
 package com.example.springmybatis.mapper;
 
 import com.example.springmybatis.entity.User;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface UserMapper {
     int deleteUser(Integer id);
 
     List<User> getUserLikeByName(String name);
+
+    @Select("select id, username, password, role_code as roleCode from z_user where role_code=#{role}")
+    List<User> getUserLikeByRole(String role);
 }

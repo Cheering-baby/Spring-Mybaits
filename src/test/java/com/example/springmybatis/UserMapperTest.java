@@ -56,4 +56,10 @@ public class UserMapperTest {
         List<User> result = userMapper.getUserLikeByName("admin");
         Assert.notEmpty(result);
     }
+
+    @Test
+    public void GetUserLikeByCode() {
+        List<User> result = userMapper.getUserLikeByRole("ADMIN");
+        Assert.notEmpty(result);
+    }
 }
