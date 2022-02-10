@@ -2,6 +2,7 @@ package com.example.springmybatis;
 
 import com.example.springmybatis.entity.User;
 import com.example.springmybatis.mapper.UserMapper;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class UserMapperTest {
+
+    private static Logger logger = Logger.getLogger(UserMapperTest.class);
 
     @Autowired
     UserMapper userMapper;
@@ -60,6 +63,8 @@ public class UserMapperTest {
     @Test
     public void GetUserLikeByCode() {
         List<User> result = userMapper.getUserLikeByRole("ADMIN");
+        logger.info("GetUserLikeByCode");
+        logger.debug("debug");
         Assert.notEmpty(result);
     }
 }
